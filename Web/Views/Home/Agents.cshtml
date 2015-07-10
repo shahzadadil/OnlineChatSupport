@@ -1,0 +1,30 @@
+﻿<div ng-controller="agentListController">
+    <div class="row margin-top-medium">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 chat-background">
+            <div class="col-lg-12 chat-box" ng-repeat="agent in agents | filter:statusFilter">
+                <div class="col-lg-1" ng-class="agent.class"></div>
+                <div class="col-lg-2 padding-none">
+                    <img src="~/Content/Images/user.png" alt="{{agent.Name}}" />
+                </div>
+                <div class="col-lg-8 row">
+                    <div class="col-lg-12 padding-none">
+                        <div class="col-lg-6 padding-none">
+                            <div class="col-lg-4 padding-left-xs">
+                                <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+                            </div>
+                            <label class="col-lg-4 padding-none">Ext: </label>
+                            <label class="col-lg-4 padding-none">{{agent.Extension}}</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="pull-right">{{agent.Name}}</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 padding-left-xs">{{agent.Status}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+

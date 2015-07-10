@@ -1,0 +1,100 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.margin-top-medium {
+    margin-top: 20px; 
+}
+
+.margin-none {
+    margin: 0;
+}
+
+.padding-none {
+    padding: 0;
+}
+
+.padding-left-xs {
+    padding-left: 7px;
+}
+
+.offline {
+    background-color: lightgray;
+    padding: 0;
+    width: 5px;
+    height: 100%;
+}
+
+.on-call {
+    background-color: red;
+    padding: 0;
+    width: 5px;
+    height: 100%;
+}
+
+.inactive {
+    background-color: yellow;
+    padding: 0;
+    width: 5px;
+    height: 100%;
+}
+
+.available {
+    background-color: green;
+    padding: 0;
+    width: 5px;
+    height: 100%;
+}
+
+.chat-box {
+    height: 50px;
+    margin: 20px;
+}
+
+.chat-box img {
+    height: 50px;
+}
+
+.chat-background {
+    background-color: whitesmoke;
+    padding: 20px;
+}
