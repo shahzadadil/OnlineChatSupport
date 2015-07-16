@@ -22,6 +22,7 @@ Steps
 3. Build the solution, allow the necessary packages to get downloaded and installed
 4. Launch the Web project in a browser
 5. Click on the <b>Agents</b> menu for list of agents
+6. Click on the <b>Admin</b> menu for managing agent status (This page is for demo purposes and the implementation would be different in real world scenario)
 
 Solution Architecture
 ----------------------
