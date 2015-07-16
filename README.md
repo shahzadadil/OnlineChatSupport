@@ -32,6 +32,7 @@ The solution has been divided into multiple projects for separation of concerns 
 2. <strong>Core.Test</strong> - Contains unit test cases for source code residing in Core project. Uses NUnit framework for unit test case definition and execution. Uses SQL Server Compact Framework for running database operations in test cases.
 3. <strong>Domain</strong> - Contains the Data Access Layer. Responsible for connecting to the database using Entity Framework. Also contains ViewModels that would be the structure of the data getting returned from WebAPI.
 4. <strong>Web</strong> - The frontend project that makes use of WebAPI and the AngularJS framework.The App and App.Tests contains the AngularJS components and their respective unit test cases. The test cases have been designed using Jasmine Test framework. The project also employs Dependency Injection concept using Castle Windsor Framework.
+5. <strong>Framework</strong> - Contains resources that belong to the framework.
 
 Design Patterns
 ---------------
