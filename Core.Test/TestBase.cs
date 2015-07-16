@@ -36,5 +36,11 @@ namespace Core.Test
         {
             Context.SaveChanges();
         }
+
+        protected void RefreshContext()
+        {
+            Context.Dispose();
+            Context = new EntitiesContext();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System.Linq;
 using Domain.Entities;
 using Domain.Entities.Core;
 
@@ -14,7 +15,10 @@ namespace Domain.Migrations
 
         protected override void Seed(EntitiesContext context)
         {
-            context.Agents.RemoveRange(context.Agents);
+            if (context.Agents.Any())
+            {
+                return;
+            }
 
             context.Agents.AddOrUpdate(new[]
             {
@@ -25,6 +29,8 @@ namespace Domain.Migrations
                 new Agent {Id=5, Name="Frank", Extension = "123", Status = "inactive"},
                 new Agent {Id=6, Name="Sam", Extension = "231", Status = "available"}
             });
+
+            context.SaveChanges();
         }
     }
 }

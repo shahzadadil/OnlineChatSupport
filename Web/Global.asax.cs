@@ -6,6 +6,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
+using Microsoft.AspNet.SignalR;
+using SignalR.Castle.Windsor;
 using Web.Infrastructure;
 using Configuration = Domain.Migrations.Configuration;
 
@@ -38,6 +40,8 @@ namespace Web
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
             GlobalConfiguration.Configuration.DependencyResolver = 
                 new Infrastructure.DependencyResolver(_container.Kernel);
+
+            GlobalHost.DependencyResolver = new WindsorDependencyResolver(_container);
         }
 
         private static void UpdateDb()

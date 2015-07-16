@@ -12,7 +12,7 @@ namespace Core.Test
             _context = context;
         }
 
-        public void Agent(string name, string extension, string status)
+        public Agent Agent(string name, string extension, string status)
         {
             var agent = new Agent
             {
@@ -22,6 +22,8 @@ namespace Core.Test
             };
 
             _context.Agents.Add(agent);
+
+            return agent;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Core.Repositories.Implementation;
+using Domain.ViewModels.Agent;
 using NUnit.Framework;
 
 namespace Core.Test.Repositories
@@ -58,6 +59,54 @@ namespace Core.Test.Repositories
             Assert.That(agents[0].Name, Is.EqualTo("Abgent1"));
             Assert.That(agents[1].Name, Is.EqualTo("Agent3"));
             Assert.That(agents[2].Name, Is.EqualTo("XAgent2"));
+        }
+
+        [Test]
+        public void UpdateStatus_AgentStatusUpdated_ReturnsTrue()
+        {
+            //ARRANGE
+            var agent = Entity.Agent("Agent1", "111", "Status1");
+
+            SaveChanges();
+
+            var repository = new AgentRepository();
+
+            //ACT
+            var success = repository.UpdateStatus(new AgentStatusModel
+            {
+                AgentId = agent.Id, 
+                Status = "StatusNew"
+            });
+
+            //ASSERT
+            Assert.IsTrue(success);
+
+            RefreshContext();
+
+            var updatedAgent = Context.Agents.Find(agent.Id);
+
+            Assert.That(updatedAgent.Status, Is.EqualTo("StatusNew"));
+        }
+
+        [Test]
+        public void UpdateStatus_AgentNotFound_ReturnsFalse()
+        {
+            //ARRANGE
+            Entity.Agent("Agent1", "111", "Status1");
+
+            SaveChanges();
+
+            var repository = new AgentRepository();
+
+            //ACT
+            var success = repository.UpdateStatus(new AgentStatusModel
+            {
+                AgentId = 999,
+                Status = "StatusNew"
+            });
+
+            //ASSERT
+            Assert.IsFalse(success);
         }
     }
 }

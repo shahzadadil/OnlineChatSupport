@@ -1,4 +1,9 @@
-﻿angular.module("onlineChatSupport", ["ngResource"])
+﻿/// <reference path="../../Scripts/jquery-2.1.4.js" />
+/// <reference path="../Framework/init.js" />
+/// <reference path="../Framework/helper.js" />
+
+
+angular.module("onlineChatSupport", ["ngResource"])
   .constant("agentListUrl", "/api/Agent")
   .config(function ($httpProvider) {
       $httpProvider.defaults.withCredentials = true;
@@ -14,20 +19,7 @@
 
       $scope.statusFilter = function (agent) {
 
-          if (typeof agent.Status == "undefined" || agent.Status == null || agent.Status == "") {
-              agent.class = "";
-              return true;
-          }
-
-          if (agent.Status == 'on call') {
-              agent.class = "on-call";
-          } else if (agent.Status == 'available') {
-              agent.class = "available";
-          } else if (agent.Status == 'offline') {
-              agent.class = "offline";
-          } else if (agent.Status == 'inactive') {
-              agent.class = "inactive";
-          }
+          agent.class = $.App.Agents.getStatusClass(agent.Status);
 
           return true;
       };

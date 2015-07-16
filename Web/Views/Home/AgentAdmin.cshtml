@@ -1,10 +1,8 @@
-﻿<script src="~/App/SignalR/agentList.js"></script>
-<div ng-controller="agentListController">
+﻿<div ng-controller="agentListController">
     <div class="row margin-top-medium">
         <div class="col-lg-4"></div>
         <div class="col-lg-4 chat-background">
-            <div class="col-lg-12 chat-box" id="agent_{{agent.Id}}" ng-repeat="agent in agents | filter:statusFilter">
-                <div class="col-lg-1 status-graphic" ng-class="agent.class"></div>
+            <div class="col-lg-12 chat-box" data-agent-id="{{agent.Id}}" ng-repeat="agent in agents | filter:statusFilter">
                 <div class="col-lg-2 padding-none">
                     <img src="~/Content/Images/user.png" alt="{{agent.Name}}" />
                 </div>
@@ -21,7 +19,14 @@
                             <label class="pull-right">{{agent.Name}}</label>
                         </div>
                     </div>
-                    <div class="col-lg-12 padding-left-xs agent-status">{{agent.Status}}</div>
+                    <div class="col-lg-12 padding-left-xs dropdown">
+                        <select ng-model="agent.Status" class="agent-status">
+                            <option value="on call">On call</option>
+                            <option value="available">Available</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="offline">Offline</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,3 +34,4 @@
     </div>
 </div>
 
+<script src="~/App/SignalR/agentAdmin.js"></script>

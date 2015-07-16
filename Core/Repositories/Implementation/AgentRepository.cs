@@ -21,5 +21,24 @@ namespace Core.Repositories.Implementation
                 .ToArray();
             }
         }
+
+        public bool UpdateStatus(AgentStatusModel agentStatus)
+        {
+            using (var context = new EntitiesContext())
+            {
+                var agent = context.Agents.Find(agentStatus.AgentId);
+
+                if (agent == null)
+                {
+                    return false;
+                }
+
+                agent.Status = agentStatus.Status;
+
+                context.SaveChanges();
+
+                return true;
+            }
+        }
     }
 }
