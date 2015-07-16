@@ -27,6 +27,10 @@ namespace Web
                 "~/Scripts/angular-route.js",
                 "~/Scripts/angular-resource.js",
                 "~/Scripts/angular-mocks.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/framework").Include(
+                "~/App/Framework/init.js",
+                "~/App/Framework/helper.js"));
         }
     }
 }

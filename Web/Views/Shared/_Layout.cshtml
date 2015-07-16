@@ -8,8 +8,7 @@
     @Scripts.Render("~/bundles/jquery")
     <script src="~/Scripts/jquery.signalR-2.2.0.js"></script>
     <script src="/signalr/js"></script>
-    <script src="~/App/Framework/init.js"></script>
-    <script src="~/App/Framework/helper.js"></script>
+    @Scripts.Render("~/bundles/framework")
     <script type="text/javascript" src="~/App/Controllers/agentListController.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -29,6 +28,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Agents", "Agents", "Home")</li>
+                    <li>@Html.ActionLink("Admin", "AgentAdmin", "Home")</li>
                 </ul>
             </div>
         </div>
